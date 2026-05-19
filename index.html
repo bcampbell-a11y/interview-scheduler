@@ -9,197 +9,71 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #ffffff;
-    --bg2: #f5f5f3;
-    --bg3: #efefec;
-    --text: #1a1a18;
-    --text2: #6b6b67;
-    --text3: #9d9d98;
-    --border: rgba(0,0,0,0.12);
-    --border2: rgba(0,0,0,0.22);
-    --radius: 8px;
-    --radius-lg: 12px;
-    --green-bg: #eaf3de;
-    --green-text: #3b6d11;
-    --green-border: #c0dd97;
-    --blue-bg: #e6f1fb;
-    --blue-text: #185fa5;
-    --blue-border: #b5d4f4;
-    --red-text: #a32d2d;
-    --red-bg: #fcebeb;
-    --red-border: #f7c1c1;
+    --bg: #ffffff; --bg2: #f5f5f3; --bg3: #efefec;
+    --text: #1a1a18; --text2: #6b6b67; --text3: #9d9d98;
+    --border: rgba(0,0,0,0.12); --border2: rgba(0,0,0,0.22);
+    --radius: 8px; --radius-lg: 12px;
+    --green-bg: #eaf3de; --green-text: #3b6d11; --green-border: #c0dd97;
+    --blue-bg: #e6f1fb; --blue-text: #185fa5; --blue-border: #b5d4f4;
+    --red-text: #a32d2d; --red-bg: #fcebeb; --red-border: #f7c1c1;
+    --yellow-bg: #fdf8e7; --yellow-border: #f0d97a; --yellow-text: #7a6200;
   }
-
   @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #1c1c1a;
-      --bg2: #252523;
-      --bg3: #2e2e2b;
-      --text: #f0f0ec;
-      --text2: #a0a09a;
-      --text3: #6e6e68;
-      --border: rgba(255,255,255,0.1);
-      --border2: rgba(255,255,255,0.2);
-      --green-bg: #173404;
-      --green-text: #c0dd97;
-      --green-border: #3b6d11;
-      --blue-bg: #042c53;
-      --blue-text: #b5d4f4;
-      --blue-border: #185fa5;
-      --red-text: #f7c1c1;
-      --red-bg: #501313;
-      --red-border: #a32d2d;
+      --bg: #1c1c1a; --bg2: #252523; --bg3: #2e2e2b;
+      --text: #f0f0ec; --text2: #a0a09a; --text3: #6e6e68;
+      --border: rgba(255,255,255,0.1); --border2: rgba(255,255,255,0.2);
+      --green-bg: #173404; --green-text: #c0dd97; --green-border: #3b6d11;
+      --blue-bg: #042c53; --blue-text: #b5d4f4; --blue-border: #185fa5;
+      --red-text: #f7c1c1; --red-bg: #501313; --red-border: #a32d2d;
+      --yellow-bg: #2e2600; --yellow-border: #7a6200; --yellow-text: #f0d97a;
     }
   }
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-    background: var(--bg3);
-    color: var(--text);
-    min-height: 100vh;
-    padding: 2rem 1rem;
-  }
-
-  .container { max-width: 660px; margin: 0 auto; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg3); color: var(--text); min-height: 100vh; padding: 2rem 1rem; }
+  .container { max-width: 680px; margin: 0 auto; }
   header { margin-bottom: 1.75rem; }
   header h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
   header p { font-size: 14px; color: var(--text2); }
 
-  .tab-bar {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 1.5rem;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .tab {
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: var(--text2);
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    font-family: inherit;
-    border-radius: var(--radius) var(--radius) 0 0;
-  }
+  .tab-bar { display: flex; gap: 4px; margin-bottom: 1.5rem; border-bottom: 0.5px solid var(--border); }
+  .tab { padding: 8px 16px; font-size: 14px; cursor: pointer; border: none; background: none; color: var(--text2); border-bottom: 2px solid transparent; margin-bottom: -1px; font-family: inherit; border-radius: var(--radius) var(--radius) 0 0; }
   .tab:hover { color: var(--text); }
   .tab.active { color: var(--text); border-bottom-color: var(--text); font-weight: 500; }
   .tab-spacer { flex: 1; }
-  .refresh-btn {
-    padding: 8px 10px;
-    cursor: pointer;
-    border: none;
-    background: none;
-    color: var(--text2);
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-  }
+  .refresh-btn { padding: 8px 10px; cursor: pointer; border: none; background: none; color: var(--text2); font-size: 16px; display: flex; align-items: center; }
   .refresh-btn:hover { color: var(--text); }
 
-  .notice {
-    font-size: 13px;
-    color: var(--text2);
-    background: var(--bg2);
-    padding: 10px 14px;
-    border-radius: var(--radius);
-    margin-bottom: 1rem;
-    border: 0.5px solid var(--border);
-  }
+  .notice { font-size: 13px; color: var(--text2); background: var(--bg2); padding: 10px 14px; border-radius: var(--radius); margin-bottom: 1rem; border: 0.5px solid var(--border); }
 
-  .card {
-    background: var(--bg);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem;
-    margin-bottom: 12px;
-  }
+  /* Day group card wraps all windows for a single date */
+  .day-group { margin-bottom: 16px; }
+  .day-group-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .day-group-title { font-size: 16px; font-weight: 600; }
 
-  .day-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .day-title { font-size: 15px; font-weight: 500; }
+  .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; margin-bottom: 8px; }
 
-  .badge {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: var(--radius);
-    background: var(--bg2);
-    color: var(--text2);
-  }
+  .window-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+  .window-time { font-size: 14px; color: var(--text2); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: var(--radius); background: var(--bg2); color: var(--text2); }
 
-  .slot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .slot {
-    padding: 10px 8px;
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    font-size: 13px;
-    text-align: center;
-    cursor: default;
-  }
-  .slot.open {
-    background: var(--green-bg);
-    border-color: var(--green-border);
-    color: var(--green-text);
-    cursor: pointer;
-  }
+  .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(115px, 1fr)); gap: 7px; margin-top: 8px; }
+  .slot { padding: 9px 6px; border: 0.5px solid var(--border); border-radius: var(--radius); font-size: 13px; text-align: center; cursor: default; }
+  .slot.open { background: var(--green-bg); border-color: var(--green-border); color: var(--green-text); cursor: pointer; }
   .slot.open:hover { opacity: 0.75; }
   .slot.taken { background: var(--bg2); color: var(--text3); text-decoration: line-through; }
   .slot.mine { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue-text); }
 
   .booked-list { margin-top: 10px; border-top: 0.5px solid var(--border); padding-top: 8px; }
-  .booked-item {
-    font-size: 13px;
-    padding: 5px 0;
-    border-bottom: 0.5px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-  }
+  .booked-item { font-size: 13px; padding: 5px 0; border-bottom: 0.5px solid var(--border); display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
   .booked-item:last-child { border-bottom: none; }
   .booked-name { font-weight: 500; }
   .booked-meta { color: var(--text3); font-size: 12px; }
 
-  input {
-    height: 38px;
-    padding: 0 10px;
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 14px;
-    background: var(--bg);
-    color: var(--text);
-    width: 100%;
-  }
+  input { height: 38px; padding: 0 10px; border: 0.5px solid var(--border2); border-radius: var(--radius); font-family: inherit; font-size: 14px; background: var(--bg); color: var(--text); width: 100%; }
   input:focus { outline: none; border-color: var(--text2); }
 
-  .btn {
-    height: 38px;
-    padding: 0 14px;
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius);
-    font-family: inherit;
-    font-size: 14px;
-    cursor: pointer;
-    background: var(--bg);
-    color: var(--text);
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-  }
+  .btn { height: 38px; padding: 0 14px; border: 0.5px solid var(--border2); border-radius: var(--radius); font-family: inherit; font-size: 14px; cursor: pointer; background: var(--bg); color: var(--text); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
   .btn:hover { background: var(--bg2); }
   .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
   .btn-primary:hover { opacity: 0.85; }
@@ -208,67 +82,27 @@
   .btn-danger:hover { background: var(--red-bg); }
   .btn-row { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
 
-  .dur-btn {
-    padding: 6px 14px;
-    border: 0.5px solid var(--border2);
-    border-radius: 20px;
-    font-size: 13px;
-    cursor: pointer;
-    background: var(--bg);
-    color: var(--text2);
-    font-family: inherit;
-  }
+  .dur-btn { padding: 6px 14px; border: 0.5px solid var(--border2); border-radius: 20px; font-size: 13px; cursor: pointer; background: var(--bg); color: var(--text2); font-family: inherit; }
   .dur-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
 
   .field { margin-bottom: 14px; }
   .field label { font-size: 13px; color: var(--text2); display: block; margin-bottom: 5px; }
-
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    z-index: 100;
-  }
-  .modal {
-    background: var(--bg);
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    max-width: 360px;
-    width: 100%;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-  }
-  .modal h3 { font-size: 16px; font-weight: 500; margin-bottom: 1.25rem; }
-  .modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1.25rem; }
+  .field .optional { font-size: 11px; color: var(--text3); margin-left: 4px; }
+  .two-col { display: flex; gap: 12px; }
+  .two-col .field { flex: 1; }
   .time-row { display: flex; gap: 12px; }
   .time-row .field { flex: 1; }
 
-  .status-bar {
-    font-size: 12px;
-    color: var(--text3);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 14px;
-  }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 100; overflow-y: auto; }
+  .modal { background: var(--bg); border: 0.5px solid var(--border2); border-radius: var(--radius-lg); padding: 1.5rem; max-width: 400px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,0.18); }
+  .modal h3 { font-size: 16px; font-weight: 500; margin-bottom: 1.25rem; }
+  .modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1.25rem; }
+
+  .status-bar { font-size: 12px; color: var(--text3); display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-text); display: inline-block; flex-shrink: 0; }
   .dot.err { background: var(--red-text); }
 
-  .spinner {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 2px solid var(--border2);
-    border-top-color: var(--text);
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    vertical-align: -3px;
-    margin-right: 6px;
-  }
+  .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid var(--border2); border-top-color: var(--text); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: -3px; margin-right: 6px; }
   @keyframes spin { to { transform: rotate(360deg); } }
 
   .empty { color: var(--text3); font-size: 14px; padding: 1rem 0; }
@@ -282,6 +116,13 @@
 
   .success-icon { font-size: 48px; color: var(--green-text); display: block; text-align: center; margin-bottom: 12px; }
   .hint { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+  .settings-section h3 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+  .settings-section p { font-size: 13px; color: var(--text2); margin-bottom: 12px; }
+  .webhook-status { font-size: 12px; margin-top: 6px; }
+  .webhook-status.ok { color: var(--green-text); }
+  .webhook-status.none { color: var(--text3); }
+  .divider { border: none; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
 </style>
 </head>
 <body>
@@ -297,7 +138,7 @@
 <script>
 const SB_URL    = 'https://pmodhdsytmonkhsnoont.supabase.co/rest/v1';
 const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtb2RoZHN5dG1vbmtoc25vb250Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzY3NDEsImV4cCI6MjA5NDcxMjc0MX0.U1SoCy6aMJ2ABC8HPKzBQjLa0MXY9t4k6AF4vmR5gqk';
-const ADMIN_PIN = '1234'; // Change this to your preferred PIN
+const ADMIN_PIN = '1234'; // ← Change this to your preferred PIN
 const DUR_KEY   = 'sched_duration';
 
 const HDR = {
@@ -309,12 +150,12 @@ const HDR = {
 
 let state = {
   view: 'participant',
-  windows: [],
-  bookings: [],
+  windows: [], bookings: [],
   duration: parseInt(localStorage.getItem(DUR_KEY) || '30'),
-  loading: true,
-  error: null,
-  adminUnlocked: false
+  settings: { notify_email: '', zapier_webhook: '' },
+  loading: true, error: null,
+  adminUnlocked: false,
+  settingsSaved: false
 };
 
 const myEmail = () => sessionStorage.getItem('sched_email') || '';
@@ -335,6 +176,15 @@ async function sbPatch(table, filter, body) {
   if (!r.ok) throw new Error(await r.text());
   return r.json();
 }
+async function sbUpsert(table, body) {
+  const r = await fetch(`${SB_URL}/${table}`, {
+    method:'POST',
+    headers: { ...HDR, 'Prefer': 'resolution=merge-duplicates,return=representation' },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
 async function sbDelete(table, filter) {
   const r = await fetch(`${SB_URL}/${table}?${filter}`, { method:'DELETE', headers: {...HDR, 'Prefer':''} });
   if (!r.ok) throw new Error(await r.text());
@@ -343,13 +193,46 @@ async function sbDelete(table, filter) {
 async function loadData() {
   state.loading = true; render();
   try {
-    const [wins, books] = await Promise.all([
-      sbGet('availability_windows', 'order=date.asc'),
-      sbGet('bookings', 'order=booked_at.asc')
+    const [wins, books, settings] = await Promise.all([
+      sbGet('availability_windows', 'order=date.asc,start_time.asc'),
+      sbGet('bookings', 'order=booked_at.asc'),
+      sbGet('settings', 'id=eq.main')
     ]);
-    state.windows = wins; state.bookings = books; state.error = null;
+    state.windows  = wins;
+    state.bookings = books;
+    state.settings = settings[0] || { notify_email: '', zapier_webhook: '' };
+    state.error    = null;
   } catch(e) { state.error = 'Could not connect to database.'; }
   state.loading = false; render();
+}
+
+async function fireWebhook(booking, windowDate, slotTime) {
+  const webhook = state.settings.zapier_webhook;
+  if (!webhook) return;
+  const win = state.windows.find(w => w.date === windowDate);
+  try {
+    await fetch(webhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify({
+        event: 'new_booking',
+        notify_email:     state.settings.notify_email,
+        attendee_name:    booking.name,
+        attendee_email:   booking.email,
+        attendee_phone:   booking.phone   || '',
+        attendee_company: booking.company || '',
+        date:             windowDate,
+        date_formatted:   fmtDate(windowDate),
+        day_of_week:      dow(windowDate),
+        slot_time:        slotTime,
+        slot_formatted:   fmtTime(slotTime),
+        duration_mins:    state.duration,
+        window_start:     win ? win.start_time : '',
+        window_end:       win ? win.end_time   : ''
+      })
+    });
+  } catch(e) { console.warn('Webhook failed:', e); }
 }
 
 function timeToMin(t) { const [h,m]=t.split(':').map(Number); return h*60+m; }
@@ -373,6 +256,16 @@ function getSlots(w) {
 }
 function getBooking(date,slot) { return state.bookings.find(b=>b.window_date===date&&b.slot_time===slot); }
 
+// Group windows by date for display
+function groupByDate(windows) {
+  const map = {};
+  windows.forEach(w => {
+    if (!map[w.date]) map[w.date] = [];
+    map[w.date].push(w);
+  });
+  return Object.entries(map).sort(([a],[b]) => a.localeCompare(b));
+}
+
 function render() {
   const app=document.getElementById('app');
   if (state.loading) { app.innerHTML=`<div style="text-align:center;padding:3rem;color:var(--text2)"><span class="spinner"></span>Loading…</div>`; return; }
@@ -390,37 +283,45 @@ function render() {
     </div>
     <div class="status-bar">
       <span class="dot ${state.error?'err':''}"></span>
-      ${state.error||'Live database connected'}
+      ${state.error || 'Live database connected'}
     </div>
     ${state.view==='participant' ? renderParticipant() : (!state.adminUnlocked ? renderPinPrompt() : renderAdmin())}
   `;
 }
 
 function renderParticipant() {
-  const me=myEmail();
-  let h=`<div class="notice"><i class="ti ti-info-circle" aria-hidden="true" style="margin-right:6px"></i>Click any green slot to book your interview. All times are CDT.</div>`;
-  if (!state.windows.length) return h+`<p class="empty">No availability posted yet — check back soon.</p>`;
-  state.windows.forEach(w=>{
-    const slots=getSlots(w);
-    const open=slots.filter(s=>!getBooking(w.date,s)).length;
-    h+=`<div class="card">
-      <div class="day-header">
-        <div>
-          <div class="day-title">${dow(w.date)}, ${fmtDate(w.date)}</div>
-          <div style="font-size:13px;color:var(--text2);margin-top:2px">${fmtTime(w.start_time)} – ${fmtTime(w.end_time)} CDT</div>
+  const me = myEmail();
+  let h = `<div class="notice"><i class="ti ti-info-circle" aria-hidden="true" style="margin-right:6px"></i>Click any green slot to book your interview. All times are CDT.</div>`;
+  if (!state.windows.length) return h + `<p class="empty">No availability posted yet — check back soon.</p>`;
+
+  const groups = groupByDate(state.windows);
+  groups.forEach(([date, wins]) => {
+    const totalOpen = wins.reduce((sum, w) => sum + getSlots(w).filter(s => !getBooking(date, s)).length, 0);
+    h += `<div class="day-group">
+      <div class="day-group-header">
+        <span class="day-group-title">${dow(date)}, ${fmtDate(date)}</span>
+        <span class="badge">${totalOpen} open</span>
+      </div>`;
+    wins.forEach(w => {
+      const slots = getSlots(w);
+      const open  = slots.filter(s => !getBooking(date, s)).length;
+      h += `<div class="card">
+        <div class="window-header">
+          <span class="window-time"><i class="ti ti-clock" aria-hidden="true" style="font-size:13px;vertical-align:-2px;margin-right:4px"></i>${fmtTime(w.start_time)} – ${fmtTime(w.end_time)} CDT</span>
+          <span class="badge">${open} open</span>
         </div>
-        <span class="badge">${open} open</span>
-      </div>
-      <div class="slot-grid">
-        ${slots.map(s=>{
-          const b=getBooking(w.date,s);
-          const isMe=b&&b.email===me;
-          const cls=isMe?'slot mine':b?'slot taken':'slot open';
-          const click=!b?`onclick="openBookModal('${w.date}','${s}')"`:'' ;
-          return `<div class="${cls}" ${click}>${isMe?fmtTime(s)+' ✓':fmtTime(s)}</div>`;
-        }).join('')}
-      </div>
-    </div>`;
+        <div class="slot-grid">
+          ${slots.map(s => {
+            const b = getBooking(date, s);
+            const isMe = b && b.email === me;
+            const cls  = isMe ? 'slot mine' : b ? 'slot taken' : 'slot open';
+            const click = !b ? `onclick="openBookModal('${date}','${s}')"` : '';
+            return `<div class="${cls}" ${click}>${isMe ? fmtTime(s)+' ✓' : fmtTime(s)}</div>`;
+          }).join('')}
+        </div>
+      </div>`;
+    });
+    h += `</div>`;
   });
   return h;
 }
@@ -438,59 +339,108 @@ function renderPinPrompt() {
 }
 
 function renderAdmin() {
-  const dur=state.duration;
-  let h=`<div class="notice"><i class="ti ti-lock-open" aria-hidden="true" style="margin-right:6px"></i>Admin view — changes save to the live database instantly.</div>
+  const dur = state.duration;
+  const s   = state.settings;
+  const webhookSet = s.zapier_webhook && s.zapier_webhook.length > 0;
+  const groups = groupByDate(state.windows);
+
+  let h = `
+  <div class="notice"><i class="ti ti-lock-open" aria-hidden="true" style="margin-right:6px"></i>Admin view — changes save to the live database instantly.</div>
+
+  <!-- NOTIFICATION SETTINGS -->
+  <div class="card settings-section" style="margin-bottom:12px">
+    <h3><i class="ti ti-bell" aria-hidden="true" style="font-size:15px;vertical-align:-2px;margin-right:6px"></i>Email notifications</h3>
+    <p style="margin-top:4px">Paste your Zapier webhook URL to enable booking alerts and attendee confirmations.</p>
+    <div class="field">
+      <label>Your email (for booking alerts)</label>
+      <input type="email" id="s_email" placeholder="you@gmail.com" value="${s.notify_email||''}">
+    </div>
+    <div class="field">
+      <label>Zapier webhook URL</label>
+      <input type="url" id="s_webhook" placeholder="https://hooks.zapier.com/hooks/catch/..." value="${s.zapier_webhook||''}">
+      <p class="webhook-status ${webhookSet?'ok':'none'}">${webhookSet?'✓ Webhook configured — emails are active':'⚠ No webhook set — see setup guide below'}</p>
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="saveSettings()" id="saveSettingsBtn">
+      <i class="ti ti-device-floppy" aria-hidden="true"></i> Save settings
+    </button>
+    ${state.settingsSaved ? '<span style="font-size:13px;color:var(--green-text);margin-left:10px">✓ Saved!</span>' : ''}
+  </div>
+
+  <hr class="divider">
+
+  <!-- SLOT DURATION -->
   <div style="margin-bottom:1.5rem">
-    <div class="section-header"><span class="day-title">Slot duration</span></div>
+    <div class="section-header"><span style="font-size:15px;font-weight:500">Slot duration</span></div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       ${[15,20,30,45,60].map(d=>`<button class="dur-btn ${dur===d?'active':''}" onclick="setDur(${d})">${d} min</button>`).join('')}
     </div>
   </div>
+
+  <!-- AVAILABILITY WINDOWS -->
   <div>
     <div class="section-header">
-      <span class="day-title">Availability windows</span>
+      <span style="font-size:15px;font-weight:500">Availability windows</span>
       <button class="btn" onclick="openAddWinModal()"><i class="ti ti-plus" aria-hidden="true"></i> Add window</button>
     </div>
-    ${!state.windows.length?`<p class="empty">No windows yet — add your first availability window above.</p>`:''}
-    ${state.windows.map(w=>{
-      const slots=getSlots(w);
-      const taken=slots.filter(s=>getBooking(w.date,s));
-      return `<div class="card">
-        <div class="day-header">
-          <div>
-            <div class="day-title">${dow(w.date)}, ${fmtDate(w.date)}</div>
-            <div style="font-size:13px;color:var(--text2);margin-top:2px">${fmtTime(w.start_time)} – ${fmtTime(w.end_time)} CDT</div>
-          </div>
-          <div class="btn-row">
-            <span class="badge">${taken.length}/${slots.length} booked</span>
-            <button class="btn btn-sm" onclick="openEditWinModal('${w.id}','${w.date}','${w.start_time}','${w.end_time}')">
-              <i class="ti ti-edit" aria-hidden="true"></i> Edit
-            </button>
-            <button class="btn btn-sm btn-danger" onclick="removeWin('${w.id}','${w.date}')">
-              <i class="ti ti-trash" aria-hidden="true"></i>
-            </button>
-          </div>
+    ${!state.windows.length ? `<p class="empty">No windows yet — add your first availability window above.</p>` : ''}
+    ${groups.map(([date, wins]) => {
+      return `<div class="day-group">
+        <div class="day-group-header">
+          <span class="day-group-title">${dow(date)}, ${fmtDate(date)}</span>
         </div>
-        ${taken.length?`<div class="booked-list">${taken.map(s=>{
-          const b=getBooking(w.date,s);
-          return `<div class="booked-item">
-            <span>${fmtTime(s)} — <span class="booked-name">${b.name}</span></span>
-            <span class="booked-meta">${b.email}</span>
+        ${wins.map(w => {
+          const slots = getSlots(w);
+          const taken = slots.filter(s => getBooking(date, s));
+          return `<div class="card">
+            <div class="window-header">
+              <span class="window-time"><i class="ti ti-clock" aria-hidden="true" style="font-size:13px;vertical-align:-2px;margin-right:4px"></i>${fmtTime(w.start_time)} – ${fmtTime(w.end_time)}</span>
+              <div class="btn-row">
+                <span class="badge">${taken.length}/${slots.length} booked</span>
+                <button class="btn btn-sm" onclick="openEditWinModal('${w.id}','${w.date}','${w.start_time}','${w.end_time}')">
+                  <i class="ti ti-edit" aria-hidden="true"></i> Edit
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="removeWin('${w.id}','${w.date}','${w.start_time}')">
+                  <i class="ti ti-trash" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            ${taken.length ? `<div class="booked-list">${taken.map(s => {
+              const b = getBooking(date, s);
+              return `<div class="booked-item">
+                <span style="min-width:60px;color:var(--text2);font-size:12px">${fmtTime(s)}</span>
+                <span><span class="booked-name">${b.name}</span>${b.company?` <span class="booked-meta">· ${b.company}</span>`:''}<br><span class="booked-meta">${b.email}${b.phone?' · '+b.phone:''}</span></span>
+              </div>`;
+            }).join('')}</div>` : ''}
           </div>`;
-        }).join('')}</div>`:''}
+        }).join('')}
       </div>`;
     }).join('')}
     <button class="btn btn-sm" onclick="lockAdmin()" style="margin-top:8px">
       <i class="ti ti-lock" aria-hidden="true"></i> Lock admin
     </button>
+  </div>
+
+  <!-- ZAPIER SETUP GUIDE -->
+  <hr class="divider">
+  <div class="card" style="background:var(--bg2)">
+    <div style="font-size:15px;font-weight:500;margin-bottom:10px"><i class="ti ti-bolt" aria-hidden="true" style="font-size:15px;vertical-align:-2px;margin-right:6px"></i>Zapier setup guide</div>
+    <ol style="font-size:13px;color:var(--text2);line-height:2.1;padding-left:1.25rem">
+      <li>Go to <strong>zapier.com</strong> → <strong>Create Zap</strong></li>
+      <li>Trigger: <strong>Webhooks by Zapier → Catch Hook</strong> → copy the URL and paste it above</li>
+      <li>Action 1: <strong>Gmail → Send Email</strong><br>
+        &nbsp;&nbsp;To: <code>notify_email</code> &nbsp;·&nbsp; Subject: <em>New booking: {{attendee_name}} on {{date_formatted}}</em></li>
+      <li>Action 2: <strong>Gmail → Send Email</strong><br>
+        &nbsp;&nbsp;To: <code>attendee_email</code> &nbsp;·&nbsp; Subject: <em>Your interview is confirmed — {{slot_formatted}} CDT on {{date_formatted}}</em></li>
+      <li>Turn the Zap on — done! Fields available: <code>attendee_name</code>, <code>attendee_email</code>, <code>attendee_phone</code>, <code>attendee_company</code>, <code>date_formatted</code>, <code>day_of_week</code>, <code>slot_formatted</code>, <code>duration_mins</code></li>
+    </ol>
   </div>`;
   return h;
 }
 
 function openModal(html) {
-  document.getElementById('modal-container').innerHTML=`<div class="modal-overlay" onclick="if(event.target===this)closeModal()">${html}</div>`;
+  document.getElementById('modal-container').innerHTML = `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">${html}</div>`;
 }
-function closeModal() { document.getElementById('modal-container').innerHTML=''; }
+function closeModal() { document.getElementById('modal-container').innerHTML = ''; }
 
 function openAddWinModal() {
   openModal(`<div class="modal">
@@ -500,6 +450,7 @@ function openAddWinModal() {
       <div class="field"><label>Start time (CDT)</label><input type="time" id="m_start" value="09:00"></div>
       <div class="field"><label>End time (CDT)</label><input type="time" id="m_end" value="17:00"></div>
     </div>
+    <p class="hint">You can add multiple windows on the same day — e.g. 9–11 am and 2–4 pm.</p>
     <div class="modal-btns">
       <button class="btn" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" id="saveWinBtn" onclick="saveNewWin()">Save window</button>
@@ -527,91 +478,129 @@ function openBookModal(date, slot) {
   openModal(`<div class="modal">
     <h3><i class="ti ti-user-check" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Book ${fmtTime(slot)}</h3>
     <p style="font-size:13px;color:var(--text2);margin-bottom:1.25rem">${dow(date)}, ${fmtDate(date)} &middot; ${state.duration} minutes &middot; CDT</p>
-    <div class="field"><label>Your name</label><input type="text" id="b_name" placeholder="Full name" value="${myName()}"></div>
+    <div class="two-col">
+      <div class="field"><label>First name</label><input type="text" id="b_fname" placeholder="First" value="${myName().split(' ')[0]||''}"></div>
+      <div class="field"><label>Last name</label><input type="text" id="b_lname" placeholder="Last" value="${myName().split(' ').slice(1).join(' ')||''}"></div>
+    </div>
     <div class="field"><label>Email address</label><input type="email" id="b_email" placeholder="you@example.com" value="${myEmail()}"></div>
+    <div class="two-col">
+      <div class="field"><label>Phone <span class="optional">(optional)</span></label><input type="tel" id="b_phone" placeholder="555-000-0000"></div>
+      <div class="field"><label>Company <span class="optional">(optional)</span></label><input type="text" id="b_company" placeholder="Organization"></div>
+    </div>
     <div class="modal-btns">
       <button class="btn" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" id="bookBtn" onclick="confirmBook('${date}','${slot}')">Confirm booking</button>
     </div>
   </div>`);
-  setTimeout(()=>{ const n=document.getElementById('b_name'); if(n&&!n.value)n.focus(); },50);
+  setTimeout(() => { const n = document.getElementById('b_fname'); if (n && !n.value) n.focus(); }, 50);
 }
 
-function setView(v) { state.view=v; render(); }
-function setDur(d) { state.duration=d; localStorage.setItem(DUR_KEY,d); render(); }
-function lockAdmin() { state.adminUnlocked=false; state.view='participant'; render(); }
+function setView(v) { state.view = v; render(); }
+function setDur(d) { state.duration = d; localStorage.setItem(DUR_KEY, d); render(); }
+function lockAdmin() { state.adminUnlocked = false; state.view = 'participant'; render(); }
 
 function checkPin() {
-  const val=document.getElementById('pin-input').value;
-  if (val===ADMIN_PIN) { state.adminUnlocked=true; render(); }
-  else { document.getElementById('pin-error').style.display='block'; }
+  const val = document.getElementById('pin-input').value;
+  if (val === ADMIN_PIN) { state.adminUnlocked = true; render(); }
+  else { document.getElementById('pin-error').style.display = 'block'; }
+}
+
+async function saveSettings() {
+  const email   = document.getElementById('s_email').value.trim();
+  const webhook = document.getElementById('s_webhook').value.trim();
+  const btn = document.getElementById('saveSettingsBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Saving…';
+  try {
+    const [saved] = await sbUpsert('settings', { id:'main', notify_email:email, zapier_webhook:webhook, updated_at:new Date().toISOString() });
+    state.settings = saved; state.settingsSaved = true; render();
+    setTimeout(() => { state.settingsSaved = false; render(); }, 3000);
+  } catch(e) { alert('Error saving settings: '+e.message); btn.disabled=false; btn.innerHTML='<i class="ti ti-device-floppy"></i> Save settings'; }
 }
 
 async function saveNewWin() {
-  const date=document.getElementById('m_date').value;
-  const start=document.getElementById('m_start').value;
-  const end=document.getElementById('m_end').value;
+  const date  = document.getElementById('m_date').value;
+  const start = document.getElementById('m_start').value;
+  const end   = document.getElementById('m_end').value;
   if (!date||!start||!end) { alert('Please fill in all fields.'); return; }
-  if (timeToMin(end)<=timeToMin(start)) { alert('End time must be after start time.'); return; }
-  if (state.windows.find(w=>w.date===date)) { alert('A window for that date already exists.'); return; }
-  const btn=document.getElementById('saveWinBtn');
+  if (timeToMin(end) <= timeToMin(start)) { alert('End time must be after start time.'); return; }
+  // Check for overlap with existing windows on same day
+  const same = state.windows.filter(w => w.date === date);
+  const overlap = same.find(w => timeToMin(start) < timeToMin(w.end_time) && timeToMin(end) > timeToMin(w.start_time));
+  if (overlap) { alert(`This window overlaps with an existing window (${fmtTime(overlap.start_time)} – ${fmtTime(overlap.end_time)}) on that day.`); return; }
+  const btn = document.getElementById('saveWinBtn');
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saving…';
   try {
-    const [created]=await sbPost('availability_windows',{date,start_time:start,end_time:end});
+    const [created] = await sbPost('availability_windows', { date, start_time:start, end_time:end });
     state.windows.push(created);
-    state.windows.sort((a,b)=>a.date.localeCompare(b.date));
+    state.windows.sort((a,b) => a.date.localeCompare(b.date) || a.start_time.localeCompare(b.start_time));
     closeModal(); render();
   } catch(e) { alert('Error: '+e.message); btn.disabled=false; btn.innerHTML='Save window'; }
 }
 
 async function saveEditWin(id, oldDate) {
-  const date=document.getElementById('m_date').value;
-  const start=document.getElementById('m_start').value;
-  const end=document.getElementById('m_end').value;
+  const date  = document.getElementById('m_date').value;
+  const start = document.getElementById('m_start').value;
+  const end   = document.getElementById('m_end').value;
   if (!date||!start||!end) { alert('Please fill in all fields.'); return; }
-  if (timeToMin(end)<=timeToMin(start)) { alert('End time must be after start time.'); return; }
-  if (date!==oldDate && state.windows.find(w=>w.date===date&&w.id!==id)) { alert('A window for that date already exists.'); return; }
-  const btn=document.getElementById('saveWinBtn');
+  if (timeToMin(end) <= timeToMin(start)) { alert('End time must be after start time.'); return; }
+  // Check overlap excluding this window
+  const same = state.windows.filter(w => w.date === date && w.id !== id);
+  const overlap = same.find(w => timeToMin(start) < timeToMin(w.end_time) && timeToMin(end) > timeToMin(w.start_time));
+  if (overlap) { alert(`This window overlaps with an existing window (${fmtTime(overlap.start_time)} – ${fmtTime(overlap.end_time)}) on that day.`); return; }
+  const btn = document.getElementById('saveWinBtn');
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saving…';
   try {
-    const [updated]=await sbPatch('availability_windows',`id=eq.${id}`,{date,start_time:start,end_time:end});
-    const idx=state.windows.findIndex(w=>w.id===id);
-    if (idx!==-1) state.windows[idx]=updated;
-    if (date!==oldDate) state.bookings=state.bookings.filter(b=>b.window_date!==oldDate);
-    state.windows.sort((a,b)=>a.date.localeCompare(b.date));
+    const [updated] = await sbPatch('availability_windows', `id=eq.${id}`, { date, start_time:start, end_time:end });
+    const idx = state.windows.findIndex(w => w.id === id);
+    if (idx !== -1) state.windows[idx] = updated;
+    if (date !== oldDate) state.bookings = state.bookings.filter(b => b.window_date !== oldDate);
+    state.windows.sort((a,b) => a.date.localeCompare(b.date) || a.start_time.localeCompare(b.start_time));
     closeModal(); render();
   } catch(e) { alert('Error: '+e.message); btn.disabled=false; btn.innerHTML='Save changes'; }
 }
 
-async function removeWin(id, date) {
-  if (!confirm('Remove this window? Existing bookings for this date will also be deleted.')) return;
+async function removeWin(id, date, startTime) {
+  if (!confirm(`Remove the ${fmtTime(startTime)} window? Existing bookings in this window will also be deleted.`)) return;
   try {
-    await sbDelete('bookings',`window_date=eq.${date}`);
-    await sbDelete('availability_windows',`id=eq.${id}`);
-    state.windows=state.windows.filter(w=>w.id!==id);
-    state.bookings=state.bookings.filter(b=>b.window_date!==date);
+    // Only delete bookings that fall within this specific window's slots
+    const win = state.windows.find(w => w.id === id);
+    if (win) {
+      const slots = getSlots(win);
+      state.bookings = state.bookings.filter(b => {
+        if (b.window_date !== date) return true;
+        return !slots.includes(b.slot_time);
+      });
+    }
+    await sbDelete('availability_windows', `id=eq.${id}`);
+    state.windows = state.windows.filter(w => w.id !== id);
     render();
   } catch(e) { alert('Error: '+e.message); }
 }
 
 async function confirmBook(date, slot) {
-  const name=document.getElementById('b_name').value.trim();
-  const email=document.getElementById('b_email').value.trim();
-  if (!name||!email) { alert('Please enter your name and email.'); return; }
+  const fname   = document.getElementById('b_fname').value.trim();
+  const lname   = document.getElementById('b_lname').value.trim();
+  const email   = document.getElementById('b_email').value.trim();
+  const phone   = document.getElementById('b_phone').value.trim();
+  const company = document.getElementById('b_company').value.trim();
+  const name    = (fname+' '+lname).trim();
+  if (!fname||!email) { alert('Please enter your first name and email.'); return; }
   if (!email.includes('@')) { alert('Please enter a valid email address.'); return; }
-  if (getBooking(date,slot)) { alert('That slot was just taken — please choose another.'); closeModal(); render(); return; }
-  const btn=document.getElementById('bookBtn');
+  if (getBooking(date, slot)) { alert('That slot was just taken — please choose another.'); closeModal(); render(); return; }
+  const btn = document.getElementById('bookBtn');
   btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Booking…';
   try {
-    const [booking]=await sbPost('bookings',{window_date:date,slot_time:slot,name,email});
-    sessionStorage.setItem('sched_email',email);
-    sessionStorage.setItem('sched_name',name);
+    const [booking] = await sbPost('bookings', { window_date:date, slot_time:slot, name, email, phone:phone||null, company:company||null });
+    sessionStorage.setItem('sched_email', email);
+    sessionStorage.setItem('sched_name', name);
     state.bookings.push(booking);
+    fireWebhook(booking, date, slot);
     openModal(`<div class="modal" style="text-align:center">
       <i class="ti ti-circle-check success-icon" aria-hidden="true"></i>
       <h3>You're booked!</h3>
       <p style="font-size:14px;color:var(--text2);margin-top:8px">${fmtTime(slot)} CDT &middot; ${dow(date)}, ${fmtDate(date)}</p>
       <p style="font-size:13px;color:var(--text3);margin-top:6px">Duration: ${state.duration} minutes. Please add this to your calendar.</p>
+      ${state.settings.zapier_webhook ? `<p style="font-size:13px;color:var(--green-text);margin-top:8px"><i class="ti ti-mail" aria-hidden="true"></i> A confirmation email is on its way!</p>` : ''}
       <div style="margin-top:1.5rem"><button class="btn btn-primary" onclick="closeModal()">Done</button></div>
     </div>`);
     render();
