@@ -60,34 +60,17 @@
     padding: 2rem 1rem;
   }
 
-  .container {
-    max-width: 660px;
-    margin: 0 auto;
-  }
-
-  header {
-    margin-bottom: 1.75rem;
-  }
-
-  header h1 {
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
-
-  header p {
-    font-size: 14px;
-    color: var(--text2);
-  }
+  .container { max-width: 660px; margin: 0 auto; }
+  header { margin-bottom: 1.75rem; }
+  header h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+  header p { font-size: 14px; color: var(--text2); }
 
   .tab-bar {
     display: flex;
     gap: 4px;
     margin-bottom: 1.5rem;
     border-bottom: 0.5px solid var(--border);
-    padding-bottom: 0;
   }
-
   .tab {
     padding: 8px 16px;
     font-size: 14px;
@@ -100,19 +83,16 @@
     font-family: inherit;
     border-radius: var(--radius) var(--radius) 0 0;
   }
-
   .tab:hover { color: var(--text); }
   .tab.active { color: var(--text); border-bottom-color: var(--text); font-weight: 500; }
   .tab-spacer { flex: 1; }
-
   .refresh-btn {
     padding: 8px 10px;
-    font-size: 14px;
     cursor: pointer;
     border: none;
     background: none;
     color: var(--text2);
-    font-family: inherit;
+    font-size: 16px;
     display: flex;
     align-items: center;
   }
@@ -139,12 +119,11 @@
   .day-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 8px;
     flex-wrap: wrap;
     gap: 8px;
   }
-
   .day-title { font-size: 15px; font-weight: 500; }
 
   .badge {
@@ -161,7 +140,6 @@
     gap: 8px;
     margin-top: 10px;
   }
-
   .slot {
     padding: 10px 8px;
     border: 0.5px solid var(--border);
@@ -170,7 +148,6 @@
     text-align: center;
     cursor: default;
   }
-
   .slot.open {
     background: var(--green-bg);
     border-color: var(--green-border);
@@ -178,21 +155,10 @@
     cursor: pointer;
   }
   .slot.open:hover { opacity: 0.75; }
-
-  .slot.taken {
-    background: var(--bg2);
-    color: var(--text3);
-    text-decoration: line-through;
-  }
-
-  .slot.mine {
-    background: var(--blue-bg);
-    border-color: var(--blue-border);
-    color: var(--blue-text);
-  }
+  .slot.taken { background: var(--bg2); color: var(--text3); text-decoration: line-through; }
+  .slot.mine { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue-text); }
 
   .booked-list { margin-top: 10px; border-top: 0.5px solid var(--border); padding-top: 8px; }
-
   .booked-item {
     font-size: 13px;
     padding: 5px 0;
@@ -203,11 +169,10 @@
     gap: 8px;
   }
   .booked-item:last-child { border-bottom: none; }
-
   .booked-name { font-weight: 500; }
   .booked-meta { color: var(--text3); font-size: 12px; }
 
-  input, select {
+  input {
     height: 38px;
     padding: 0 10px;
     border: 0.5px solid var(--border2);
@@ -222,7 +187,7 @@
 
   .btn {
     height: 38px;
-    padding: 0 16px;
+    padding: 0 14px;
     border: 0.5px solid var(--border2);
     border-radius: var(--radius);
     font-family: inherit;
@@ -238,9 +203,10 @@
   .btn:hover { background: var(--bg2); }
   .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); }
   .btn-primary:hover { opacity: 0.85; }
-  .btn-sm { height: 30px; padding: 0 10px; font-size: 12px; }
+  .btn-sm { height: 30px; padding: 0 10px; font-size: 13px; }
   .btn-danger { color: var(--red-text); border-color: var(--red-border); }
   .btn-danger:hover { background: var(--red-bg); }
+  .btn-row { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
 
   .dur-btn {
     padding: 6px 14px;
@@ -267,7 +233,6 @@
     padding: 1rem;
     z-index: 100;
   }
-
   .modal {
     background: var(--bg);
     border: 0.5px solid var(--border2);
@@ -277,15 +242,10 @@
     width: 100%;
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   }
-
   .modal h3 { font-size: 16px; font-weight: 500; margin-bottom: 1.25rem; }
-
-  .modal-btns {
-    display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    margin-top: 1.25rem;
-  }
+  .modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 1.25rem; }
+  .time-row { display: flex; gap: 12px; }
+  .time-row .field { flex: 1; }
 
   .status-bar {
     font-size: 12px;
@@ -295,10 +255,8 @@
     gap: 6px;
     margin-bottom: 14px;
   }
-
   .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-text); display: inline-block; flex-shrink: 0; }
   .dot.err { background: var(--red-text); }
-  .dot.loading { background: var(--text3); }
 
   .spinner {
     display: inline-block;
@@ -311,38 +269,19 @@
     vertical-align: -3px;
     margin-right: 6px;
   }
-
   @keyframes spin { to { transform: rotate(360deg); } }
 
   .empty { color: var(--text3); font-size: 14px; padding: 1rem 0; }
+  .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 
-  .row { display: flex; gap: 12px; }
-  .row .field { flex: 1; }
-
-  .success-icon {
-    font-size: 48px;
-    color: var(--green-text);
-    display: block;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-
-  .admin-pin-wrap {
-    max-width: 320px;
-    margin: 4rem auto;
-    text-align: center;
-  }
+  .admin-pin-wrap { max-width: 320px; margin: 4rem auto; text-align: center; }
   .admin-pin-wrap h2 { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
   .admin-pin-wrap p { font-size: 14px; color: var(--text2); margin-bottom: 1.5rem; }
   .pin-row { display: flex; gap: 8px; }
   .pin-row input { flex: 1; }
+
+  .success-icon { font-size: 48px; color: var(--green-text); display: block; text-align: center; margin-bottom: 12px; }
+  .hint { font-size: 12px; color: var(--text3); margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -353,15 +292,13 @@
   </header>
   <div id="app"></div>
 </div>
-
-<!-- Modal container (outside flow) -->
 <div id="modal-container"></div>
 
 <script>
-const SB_URL = 'https://pmodhdsytmonkhsnoont.supabase.co/rest/v1';
-const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtb2RoZHN5dG1vbmtoc25vb250Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzY3NDEsImV4cCI6MjA5NDcxMjc0MX0.U1SoCy6aMJ2ABC8HPKzBQjLa0MXY9t4k6AF4vmR5gqk';
+const SB_URL    = 'https://pmodhdsytmonkhsnoont.supabase.co/rest/v1';
+const SB_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtb2RoZHN5dG1vbmtoc25vb250Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzY3NDEsImV4cCI6MjA5NDcxMjc0MX0.U1SoCy6aMJ2ABC8HPKzBQjLa0MXY9t4k6AF4vmR5gqk';
 const ADMIN_PIN = '1234'; // Change this to your preferred PIN
-const DURATION_KEY = 'sched_duration';
+const DUR_KEY   = 'sched_duration';
 
 const HDR = {
   'apikey': SB_KEY,
@@ -374,109 +311,99 @@ let state = {
   view: 'participant',
   windows: [],
   bookings: [],
-  duration: parseInt(localStorage.getItem(DURATION_KEY) || '30'),
+  duration: parseInt(localStorage.getItem(DUR_KEY) || '30'),
   loading: true,
   error: null,
-  saving: false,
   adminUnlocked: false
 };
 
 const myEmail = () => sessionStorage.getItem('sched_email') || '';
-const myName = () => sessionStorage.getItem('sched_name') || '';
+const myName  = () => sessionStorage.getItem('sched_name')  || '';
 
-async function sbGet(table, params = '') {
-  const r = await fetch(`${SB_URL}/${table}?${params}`, { headers: HDR });
+async function sbGet(table, params) {
+  const r = await fetch(`${SB_URL}/${table}?${params||''}`, { headers: HDR });
   if (!r.ok) throw new Error(await r.text());
   return r.json();
 }
-
 async function sbPost(table, body) {
-  const r = await fetch(`${SB_URL}/${table}`, { method: 'POST', headers: HDR, body: JSON.stringify(body) });
+  const r = await fetch(`${SB_URL}/${table}`, { method:'POST', headers: HDR, body: JSON.stringify(body) });
   if (!r.ok) throw new Error(await r.text());
   return r.json();
 }
-
+async function sbPatch(table, filter, body) {
+  const r = await fetch(`${SB_URL}/${table}?${filter}`, { method:'PATCH', headers: HDR, body: JSON.stringify(body) });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
 async function sbDelete(table, filter) {
-  const r = await fetch(`${SB_URL}/${table}?${filter}`, { method: 'DELETE', headers: { ...HDR, 'Prefer': '' } });
+  const r = await fetch(`${SB_URL}/${table}?${filter}`, { method:'DELETE', headers: {...HDR, 'Prefer':''} });
   if (!r.ok) throw new Error(await r.text());
 }
 
 async function loadData() {
-  state.loading = true;
-  render();
+  state.loading = true; render();
   try {
     const [wins, books] = await Promise.all([
       sbGet('availability_windows', 'order=date.asc'),
       sbGet('bookings', 'order=booked_at.asc')
     ]);
-    state.windows = wins;
-    state.bookings = books;
-    state.error = null;
-  } catch (e) {
-    state.error = 'Could not connect to database.';
-  }
-  state.loading = false;
-  render();
+    state.windows = wins; state.bookings = books; state.error = null;
+  } catch(e) { state.error = 'Could not connect to database.'; }
+  state.loading = false; render();
 }
 
-function timeToMin(t) { const [h, m] = t.split(':').map(Number); return h * 60 + m; }
-function minToTime(m) { return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); }
+function timeToMin(t) { const [h,m]=t.split(':').map(Number); return h*60+m; }
+function minToTime(m) { return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0'); }
 function fmtTime(t) {
-  const [h, m] = t.split(':').map(Number);
-  return (h % 12 || 12) + ':' + (m === 0 ? '00' : String(m).padStart(2, '0')) + (h >= 12 ? ' pm' : ' am');
+  const [h,m]=t.split(':').map(Number);
+  return (h%12||12)+':'+(m===0?'00':String(m).padStart(2,'0'))+(h>=12?' pm':' am');
 }
 function fmtDate(d) {
-  const [y, mo, day] = d.split('-');
-  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(mo)-1] + ' ' + parseInt(day) + ', ' + y;
+  const [y,mo,day]=d.split('-');
+  return ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(mo)-1]+' '+parseInt(day)+', '+y;
 }
 function dow(d) {
-  const [y, mo, day] = d.split('-').map(Number);
-  return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date(y, mo - 1, day).getDay()];
+  const [y,mo,day]=d.split('-').map(Number);
+  return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date(y,mo-1,day).getDay()];
 }
 function getSlots(w) {
-  const s = []; let c = timeToMin(w.start_time); const e = timeToMin(w.end_time);
-  while (c + state.duration <= e) { s.push(minToTime(c)); c += state.duration; }
+  const s=[]; let c=timeToMin(w.start_time); const e=timeToMin(w.end_time);
+  while (c+state.duration<=e) { s.push(minToTime(c)); c+=state.duration; }
   return s;
 }
-function getBooking(date, slot) { return state.bookings.find(b => b.window_date === date && b.slot_time === slot); }
+function getBooking(date,slot) { return state.bookings.find(b=>b.window_date===date&&b.slot_time===slot); }
 
 function render() {
-  const app = document.getElementById('app');
-  if (state.loading) {
-    app.innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text2)"><span class="spinner"></span>Loading…</div>`;
-    return;
-  }
-  const tabs = `<div class="tab-bar">
-    <button class="tab ${state.view === 'participant' ? 'active' : ''}" onclick="setView('participant')">
-      <i class="ti ti-calendar-event" aria-hidden="true"></i> Sign up
-    </button>
-    <button class="tab ${state.view === 'admin' ? 'active' : ''}" onclick="setView('admin')">
-      <i class="ti ti-settings" aria-hidden="true"></i> Admin
-    </button>
-    <span class="tab-spacer"></span>
-    <button class="refresh-btn" onclick="loadData()" title="Refresh"><i class="ti ti-refresh" aria-hidden="true"></i></button>
-  </div>
-  <div class="status-bar">
-    <span class="dot ${state.error ? 'err' : ''}"></span>
-    ${state.error || 'Live database connected'}
-  </div>`;
+  const app=document.getElementById('app');
+  if (state.loading) { app.innerHTML=`<div style="text-align:center;padding:3rem;color:var(--text2)"><span class="spinner"></span>Loading…</div>`; return; }
 
-  let content = '';
-  if (state.view === 'participant') content = renderParticipant();
-  else if (state.view === 'admin' && !state.adminUnlocked) content = renderPinPrompt();
-  else content = renderAdmin();
-
-  app.innerHTML = tabs + content;
+  app.innerHTML = `
+    <div class="tab-bar">
+      <button class="tab ${state.view==='participant'?'active':''}" onclick="setView('participant')">
+        <i class="ti ti-calendar-event" aria-hidden="true"></i> Sign up
+      </button>
+      <button class="tab ${state.view==='admin'?'active':''}" onclick="setView('admin')">
+        <i class="ti ti-settings" aria-hidden="true"></i> Admin
+      </button>
+      <span class="tab-spacer"></span>
+      <button class="refresh-btn" onclick="loadData()" title="Refresh"><i class="ti ti-refresh" aria-hidden="true"></i></button>
+    </div>
+    <div class="status-bar">
+      <span class="dot ${state.error?'err':''}"></span>
+      ${state.error||'Live database connected'}
+    </div>
+    ${state.view==='participant' ? renderParticipant() : (!state.adminUnlocked ? renderPinPrompt() : renderAdmin())}
+  `;
 }
 
 function renderParticipant() {
-  const me = myEmail();
-  let h = `<div class="notice"><i class="ti ti-info-circle" aria-hidden="true" style="margin-right:6px"></i>Click any green slot to book your interview. All times are CDT.</div>`;
-  if (state.windows.length === 0) return h + `<p class="empty">No availability posted yet — check back soon.</p>`;
-  state.windows.forEach(w => {
-    const slots = getSlots(w);
-    const open = slots.filter(s => !getBooking(w.date, s)).length;
-    h += `<div class="card">
+  const me=myEmail();
+  let h=`<div class="notice"><i class="ti ti-info-circle" aria-hidden="true" style="margin-right:6px"></i>Click any green slot to book your interview. All times are CDT.</div>`;
+  if (!state.windows.length) return h+`<p class="empty">No availability posted yet — check back soon.</p>`;
+  state.windows.forEach(w=>{
+    const slots=getSlots(w);
+    const open=slots.filter(s=>!getBooking(w.date,s)).length;
+    h+=`<div class="card">
       <div class="day-header">
         <div>
           <div class="day-title">${dow(w.date)}, ${fmtDate(w.date)}</div>
@@ -485,12 +412,12 @@ function renderParticipant() {
         <span class="badge">${open} open</span>
       </div>
       <div class="slot-grid">
-        ${slots.map(s => {
-          const b = getBooking(w.date, s);
-          const isMe = b && b.email === me;
-          const cls = isMe ? 'slot mine' : b ? 'slot taken' : 'slot open';
-          const click = !b ? `onclick="openBookModal('${w.date}','${s}')"` : '';
-          return `<div class="${cls}" ${click}>${isMe ? fmtTime(s) + ' ✓' : fmtTime(s)}</div>`;
+        ${slots.map(s=>{
+          const b=getBooking(w.date,s);
+          const isMe=b&&b.email===me;
+          const cls=isMe?'slot mine':b?'slot taken':'slot open';
+          const click=!b?`onclick="openBookModal('${w.date}','${s}')"`:'' ;
+          return `<div class="${cls}" ${click}>${isMe?fmtTime(s)+' ✓':fmtTime(s)}</div>`;
         }).join('')}
       </div>
     </div>`;
@@ -511,12 +438,12 @@ function renderPinPrompt() {
 }
 
 function renderAdmin() {
-  const dur = state.duration;
-  let h = `<div class="notice"><i class="ti ti-lock-open" aria-hidden="true" style="margin-right:6px"></i>Admin view — changes save to the live database instantly.</div>
+  const dur=state.duration;
+  let h=`<div class="notice"><i class="ti ti-lock-open" aria-hidden="true" style="margin-right:6px"></i>Admin view — changes save to the live database instantly.</div>
   <div style="margin-bottom:1.5rem">
     <div class="section-header"><span class="day-title">Slot duration</span></div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
-      ${[15, 20, 30, 45, 60].map(d => `<button class="dur-btn ${dur === d ? 'active' : ''}" onclick="setDur(${d})">${d} min</button>`).join('')}
+      ${[15,20,30,45,60].map(d=>`<button class="dur-btn ${dur===d?'active':''}" onclick="setDur(${d})">${d} min</button>`).join('')}
     </div>
   </div>
   <div>
@@ -524,90 +451,71 @@ function renderAdmin() {
       <span class="day-title">Availability windows</span>
       <button class="btn" onclick="openAddWinModal()"><i class="ti ti-plus" aria-hidden="true"></i> Add window</button>
     </div>
-    ${state.windows.length === 0 ? `<p class="empty">No windows yet — add your first availability window above.</p>` : ''}
-    ${state.windows.map(w => {
-      const slots = getSlots(w);
-      const taken = slots.filter(s => getBooking(w.date, s));
+    ${!state.windows.length?`<p class="empty">No windows yet — add your first availability window above.</p>`:''}
+    ${state.windows.map(w=>{
+      const slots=getSlots(w);
+      const taken=slots.filter(s=>getBooking(w.date,s));
       return `<div class="card">
         <div class="day-header">
           <div>
             <div class="day-title">${dow(w.date)}, ${fmtDate(w.date)}</div>
             <div style="font-size:13px;color:var(--text2);margin-top:2px">${fmtTime(w.start_time)} – ${fmtTime(w.end_time)} CDT</div>
           </div>
-          <div style="display:flex;gap:8px;align-items:center">
+          <div class="btn-row">
             <span class="badge">${taken.length}/${slots.length} booked</span>
-            <button class="btn btn-sm" onclick="openEditWinModal('${w.id}','${w.date}','${w.start_time}','${w.end_time}')" aria-label="Edit"><i class="ti ti-edit" aria-hidden="true"></i></button>
-            <button class="btn btn-sm btn-danger" onclick="removeWin('${w.id}','${w.date}')" aria-label="Remove"><i class="ti ti-trash" aria-hidden="true"></i></button>
+            <button class="btn btn-sm" onclick="openEditWinModal('${w.id}','${w.date}','${w.start_time}','${w.end_time}')">
+              <i class="ti ti-edit" aria-hidden="true"></i> Edit
+            </button>
+            <button class="btn btn-sm btn-danger" onclick="removeWin('${w.id}','${w.date}')">
+              <i class="ti ti-trash" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
-        ${taken.length > 0 ? `<div class="booked-list">${taken.map(s => {
-          const b = getBooking(w.date, s);
+        ${taken.length?`<div class="booked-list">${taken.map(s=>{
+          const b=getBooking(w.date,s);
           return `<div class="booked-item">
             <span>${fmtTime(s)} — <span class="booked-name">${b.name}</span></span>
             <span class="booked-meta">${b.email}</span>
           </div>`;
-        }).join('')}</div>` : ''}
+        }).join('')}</div>`:''}
       </div>`;
     }).join('')}
-    ${state.adminUnlocked ? `<button class="btn btn-sm" onclick="lockAdmin()" style="margin-top:8px"><i class="ti ti-lock" aria-hidden="true"></i> Lock admin</button>` : ''}
+    <button class="btn btn-sm" onclick="lockAdmin()" style="margin-top:8px">
+      <i class="ti ti-lock" aria-hidden="true"></i> Lock admin
+    </button>
   </div>`;
   return h;
 }
 
 function openModal(html) {
-  const mc = document.getElementById('modal-container');
-  mc.innerHTML = `<div class="modal-overlay" onclick="if(event.target===this)closeModal()">${html}</div>`;
+  document.getElementById('modal-container').innerHTML=`<div class="modal-overlay" onclick="if(event.target===this)closeModal()">${html}</div>`;
 }
-function closeModal() { document.getElementById('modal-container').innerHTML = ''; }
+function closeModal() { document.getElementById('modal-container').innerHTML=''; }
 
 function openAddWinModal() {
   openModal(`<div class="modal">
     <h3><i class="ti ti-calendar-plus" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Add availability window</h3>
     <div class="field"><label>Date</label><input type="date" id="m_date"></div>
-    <div class="row">
+    <div class="time-row">
       <div class="field"><label>Start time (CDT)</label><input type="time" id="m_start" value="09:00"></div>
       <div class="field"><label>End time (CDT)</label><input type="time" id="m_end" value="17:00"></div>
     </div>
     <div class="modal-btns">
       <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" id="saveWinBtn" onclick="saveWin()">Save window</button>
+      <button class="btn btn-primary" id="saveWinBtn" onclick="saveNewWin()">Save window</button>
     </div>
   </div>`);
-}
-
-function openBookModal(date, slot) {
-  openModal(`<div class="modal">
-    <h3><i class="ti ti-user-check" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Book ${fmtTime(slot)}</h3>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:1.25rem">${dow(date)}, ${fmtDate(date)} · ${state.duration} minutes · CDT</p>
-    <div class="field"><label>Your name</label><input type="text" id="b_name" placeholder="Full name" value="${myName()}"></div>
-    <div class="field"><label>Email address</label><input type="email" id="b_email" placeholder="you@example.com" value="${myEmail()}"></div>
-    <div class="modal-btns">
-      <button class="btn" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" id="bookBtn" onclick="confirmBook('${date}','${slot}')">Confirm booking</button>
-    </div>
-  </div>`);
-  setTimeout(() => { const n = document.getElementById('b_name'); if (n && !n.value) n.focus(); }, 50);
-}
-
-function setView(v) { state.view = v; render(); }
-function setDur(d) { state.duration = d; localStorage.setItem(DURATION_KEY, d); render(); }
-function lockAdmin() { state.adminUnlocked = false; state.view = 'participant'; render(); }
-
-function checkPin() {
-  const val = document.getElementById('pin-input').value;
-  if (val === ADMIN_PIN) { state.adminUnlocked = true; render(); }
-  else { document.getElementById('pin-error').style.display = 'block'; }
 }
 
 function openEditWinModal(id, date, start, end) {
   openModal(`<div class="modal">
     <h3><i class="ti ti-edit" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Edit availability window</h3>
     <div class="field"><label>Date</label><input type="date" id="m_date" value="${date}"></div>
-    <div class="row">
+    <div class="time-row">
       <div class="field"><label>Start time (CDT)</label><input type="time" id="m_start" value="${start}"></div>
       <div class="field"><label>End time (CDT)</label><input type="time" id="m_end" value="${end}"></div>
     </div>
-    <p style="font-size:12px;color:var(--text3);margin-top:4px">Note: existing bookings for this window are preserved unless you change the date.</p>
+    <p class="hint">Existing bookings are kept unless you change the date.</p>
     <div class="modal-btns">
       <button class="btn" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" id="saveWinBtn" onclick="saveEditWin('${id}','${date}')">Save changes</button>
@@ -615,87 +523,101 @@ function openEditWinModal(id, date, start, end) {
   </div>`);
 }
 
-async function saveEditWin(id, oldDate) {
-  const date = document.getElementById('m_date').value;
-  const start = document.getElementById('m_start').value;
-  const end = document.getElementById('m_end').value;
-  if (!date || !start || !end) { alert('Please fill in all fields.'); return; }
-  if (timeToMin(end) <= timeToMin(start)) { alert('End time must be after start time.'); return; }
-  if (date !== oldDate && state.windows.find(w => w.date === date && w.id !== id)) {
-    alert('A window for that date already exists.'); return;
-  }
-  const btn = document.getElementById('saveWinBtn');
-  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Saving…';
-  try {
-    const r = await fetch(`${SB_URL}/availability_windows?id=eq.${id}`, {
-      method: 'PATCH',
-      headers: HDR,
-      body: JSON.stringify({ date, start_time: start, end_time: end })
-    });
-    if (!r.ok) throw new Error(await r.text());
-    const [updated] = await r.json();
-    const idx = state.windows.findIndex(w => w.id === id);
-    if (idx !== -1) state.windows[idx] = updated;
-    if (date !== oldDate) {
-      state.bookings = state.bookings.filter(b => b.window_date !== oldDate);
-    }
-    state.windows.sort((a, b) => a.date.localeCompare(b.date));
-    closeModal(); render();
-  } catch (e) { alert('Error saving: ' + e.message); btn.disabled = false; btn.innerHTML = 'Save changes'; }
+function openBookModal(date, slot) {
+  openModal(`<div class="modal">
+    <h3><i class="ti ti-user-check" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Book ${fmtTime(slot)}</h3>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:1.25rem">${dow(date)}, ${fmtDate(date)} &middot; ${state.duration} minutes &middot; CDT</p>
+    <div class="field"><label>Your name</label><input type="text" id="b_name" placeholder="Full name" value="${myName()}"></div>
+    <div class="field"><label>Email address</label><input type="email" id="b_email" placeholder="you@example.com" value="${myEmail()}"></div>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="bookBtn" onclick="confirmBook('${date}','${slot}')">Confirm booking</button>
+    </div>
+  </div>`);
+  setTimeout(()=>{ const n=document.getElementById('b_name'); if(n&&!n.value)n.focus(); },50);
 }
 
-async function saveWin() {
-  const date = document.getElementById('m_date').value;
-  const start = document.getElementById('m_start').value;
-  const end = document.getElementById('m_end').value;
-  if (!date || !start || !end) { alert('Please fill in all fields.'); return; }
-  if (timeToMin(end) <= timeToMin(start)) { alert('End time must be after start time.'); return; }
-  if (state.windows.find(w => w.date === date)) { alert('A window for that date already exists.'); return; }
-  const btn = document.getElementById('saveWinBtn');
-  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Saving…';
+function setView(v) { state.view=v; render(); }
+function setDur(d) { state.duration=d; localStorage.setItem(DUR_KEY,d); render(); }
+function lockAdmin() { state.adminUnlocked=false; state.view='participant'; render(); }
+
+function checkPin() {
+  const val=document.getElementById('pin-input').value;
+  if (val===ADMIN_PIN) { state.adminUnlocked=true; render(); }
+  else { document.getElementById('pin-error').style.display='block'; }
+}
+
+async function saveNewWin() {
+  const date=document.getElementById('m_date').value;
+  const start=document.getElementById('m_start').value;
+  const end=document.getElementById('m_end').value;
+  if (!date||!start||!end) { alert('Please fill in all fields.'); return; }
+  if (timeToMin(end)<=timeToMin(start)) { alert('End time must be after start time.'); return; }
+  if (state.windows.find(w=>w.date===date)) { alert('A window for that date already exists.'); return; }
+  const btn=document.getElementById('saveWinBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saving…';
   try {
-    const [created] = await sbPost('availability_windows', { date, start_time: start, end_time: end });
+    const [created]=await sbPost('availability_windows',{date,start_time:start,end_time:end});
     state.windows.push(created);
-    state.windows.sort((a, b) => a.date.localeCompare(b.date));
+    state.windows.sort((a,b)=>a.date.localeCompare(b.date));
     closeModal(); render();
-  } catch (e) { alert('Error saving: ' + e.message); btn.disabled = false; btn.innerHTML = 'Save window'; }
+  } catch(e) { alert('Error: '+e.message); btn.disabled=false; btn.innerHTML='Save window'; }
+}
+
+async function saveEditWin(id, oldDate) {
+  const date=document.getElementById('m_date').value;
+  const start=document.getElementById('m_start').value;
+  const end=document.getElementById('m_end').value;
+  if (!date||!start||!end) { alert('Please fill in all fields.'); return; }
+  if (timeToMin(end)<=timeToMin(start)) { alert('End time must be after start time.'); return; }
+  if (date!==oldDate && state.windows.find(w=>w.date===date&&w.id!==id)) { alert('A window for that date already exists.'); return; }
+  const btn=document.getElementById('saveWinBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Saving…';
+  try {
+    const [updated]=await sbPatch('availability_windows',`id=eq.${id}`,{date,start_time:start,end_time:end});
+    const idx=state.windows.findIndex(w=>w.id===id);
+    if (idx!==-1) state.windows[idx]=updated;
+    if (date!==oldDate) state.bookings=state.bookings.filter(b=>b.window_date!==oldDate);
+    state.windows.sort((a,b)=>a.date.localeCompare(b.date));
+    closeModal(); render();
+  } catch(e) { alert('Error: '+e.message); btn.disabled=false; btn.innerHTML='Save changes'; }
 }
 
 async function removeWin(id, date) {
   if (!confirm('Remove this window? Existing bookings for this date will also be deleted.')) return;
   try {
-    await sbDelete('bookings', `window_date=eq.${date}`);
-    await sbDelete('availability_windows', `id=eq.${id}`);
-    state.windows = state.windows.filter(w => w.id !== id);
-    state.bookings = state.bookings.filter(b => b.window_date !== date);
+    await sbDelete('bookings',`window_date=eq.${date}`);
+    await sbDelete('availability_windows',`id=eq.${id}`);
+    state.windows=state.windows.filter(w=>w.id!==id);
+    state.bookings=state.bookings.filter(b=>b.window_date!==date);
     render();
-  } catch (e) { alert('Error: ' + e.message); }
+  } catch(e) { alert('Error: '+e.message); }
 }
 
 async function confirmBook(date, slot) {
-  const name = document.getElementById('b_name').value.trim();
-  const email = document.getElementById('b_email').value.trim();
-  if (!name || !email) { alert('Please enter your name and email.'); return; }
+  const name=document.getElementById('b_name').value.trim();
+  const email=document.getElementById('b_email').value.trim();
+  if (!name||!email) { alert('Please enter your name and email.'); return; }
   if (!email.includes('@')) { alert('Please enter a valid email address.'); return; }
-  if (getBooking(date, slot)) { alert('That slot was just taken — please choose another.'); closeModal(); render(); return; }
-  const btn = document.getElementById('bookBtn');
-  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Booking…';
+  if (getBooking(date,slot)) { alert('That slot was just taken — please choose another.'); closeModal(); render(); return; }
+  const btn=document.getElementById('bookBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner"></span>Booking…';
   try {
-    const [booking] = await sbPost('bookings', { window_date: date, slot_time: slot, name, email });
-    sessionStorage.setItem('sched_email', email);
-    sessionStorage.setItem('sched_name', name);
+    const [booking]=await sbPost('bookings',{window_date:date,slot_time:slot,name,email});
+    sessionStorage.setItem('sched_email',email);
+    sessionStorage.setItem('sched_name',name);
     state.bookings.push(booking);
     openModal(`<div class="modal" style="text-align:center">
       <i class="ti ti-circle-check success-icon" aria-hidden="true"></i>
       <h3>You're booked!</h3>
-      <p style="font-size:14px;color:var(--text2);margin-top:8px">${fmtTime(slot)} CDT · ${dow(date)}, ${fmtDate(date)}</p>
+      <p style="font-size:14px;color:var(--text2);margin-top:8px">${fmtTime(slot)} CDT &middot; ${dow(date)}, ${fmtDate(date)}</p>
       <p style="font-size:13px;color:var(--text3);margin-top:6px">Duration: ${state.duration} minutes. Please add this to your calendar.</p>
       <div style="margin-top:1.5rem"><button class="btn btn-primary" onclick="closeModal()">Done</button></div>
     </div>`);
     render();
-  } catch (e) {
+  } catch(e) {
     if (e.message.includes('unique')) { alert('That slot was just taken — please choose another.'); closeModal(); render(); }
-    else { alert('Error: ' + e.message); btn.disabled = false; btn.innerHTML = 'Confirm booking'; }
+    else { alert('Error: '+e.message); btn.disabled=false; btn.innerHTML='Confirm booking'; }
   }
 }
 
