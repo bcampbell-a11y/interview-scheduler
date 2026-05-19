@@ -361,6 +361,7 @@
 const SB_URL = 'https://pmodhdsytmonkhsnoont.supabase.co/rest/v1';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtb2RoZHN5dG1vbmtoc25vb250Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxMzY3NDEsImV4cCI6MjA5NDcxMjc0MX0.U1SoCy6aMJ2ABC8HPKzBQjLa0MXY9t4k6AF4vmR5gqk';
 const ADMIN_PIN = '1234'; // Change this to your preferred PIN
+const DURATION_KEY = 'sched_duration';
 
 const HDR = {
   'apikey': SB_KEY,
@@ -373,7 +374,7 @@ let state = {
   view: 'participant',
   windows: [],
   bookings: [],
-  duration: 30,
+  duration: parseInt(localStorage.getItem(DURATION_KEY) || '30'),
   loading: true,
   error: null,
   saving: false,
@@ -535,6 +536,7 @@ function renderAdmin() {
           </div>
           <div style="display:flex;gap:8px;align-items:center">
             <span class="badge">${taken.length}/${slots.length} booked</span>
+            <button class="btn btn-sm" onclick="openEditWinModal('${w.id}','${w.date}','${w.start_time}','${w.end_time}')" aria-label="Edit"><i class="ti ti-edit" aria-hidden="true"></i></button>
             <button class="btn btn-sm btn-danger" onclick="removeWin('${w.id}','${w.date}')" aria-label="Remove"><i class="ti ti-trash" aria-hidden="true"></i></button>
           </div>
         </div>
@@ -588,13 +590,58 @@ function openBookModal(date, slot) {
 }
 
 function setView(v) { state.view = v; render(); }
-function setDur(d) { state.duration = d; render(); }
+function setDur(d) { state.duration = d; localStorage.setItem(DURATION_KEY, d); render(); }
 function lockAdmin() { state.adminUnlocked = false; state.view = 'participant'; render(); }
 
 function checkPin() {
   const val = document.getElementById('pin-input').value;
   if (val === ADMIN_PIN) { state.adminUnlocked = true; render(); }
   else { document.getElementById('pin-error').style.display = 'block'; }
+}
+
+function openEditWinModal(id, date, start, end) {
+  openModal(`<div class="modal">
+    <h3><i class="ti ti-edit" aria-hidden="true" style="font-size:18px;vertical-align:-3px;margin-right:8px"></i>Edit availability window</h3>
+    <div class="field"><label>Date</label><input type="date" id="m_date" value="${date}"></div>
+    <div class="row">
+      <div class="field"><label>Start time (CDT)</label><input type="time" id="m_start" value="${start}"></div>
+      <div class="field"><label>End time (CDT)</label><input type="time" id="m_end" value="${end}"></div>
+    </div>
+    <p style="font-size:12px;color:var(--text3);margin-top:4px">Note: existing bookings for this window are preserved unless you change the date.</p>
+    <div class="modal-btns">
+      <button class="btn" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="saveWinBtn" onclick="saveEditWin('${id}','${date}')">Save changes</button>
+    </div>
+  </div>`);
+}
+
+async function saveEditWin(id, oldDate) {
+  const date = document.getElementById('m_date').value;
+  const start = document.getElementById('m_start').value;
+  const end = document.getElementById('m_end').value;
+  if (!date || !start || !end) { alert('Please fill in all fields.'); return; }
+  if (timeToMin(end) <= timeToMin(start)) { alert('End time must be after start time.'); return; }
+  if (date !== oldDate && state.windows.find(w => w.date === date && w.id !== id)) {
+    alert('A window for that date already exists.'); return;
+  }
+  const btn = document.getElementById('saveWinBtn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span>Saving…';
+  try {
+    const r = await fetch(`${SB_URL}/availability_windows?id=eq.${id}`, {
+      method: 'PATCH',
+      headers: HDR,
+      body: JSON.stringify({ date, start_time: start, end_time: end })
+    });
+    if (!r.ok) throw new Error(await r.text());
+    const [updated] = await r.json();
+    const idx = state.windows.findIndex(w => w.id === id);
+    if (idx !== -1) state.windows[idx] = updated;
+    if (date !== oldDate) {
+      state.bookings = state.bookings.filter(b => b.window_date !== oldDate);
+    }
+    state.windows.sort((a, b) => a.date.localeCompare(b.date));
+    closeModal(); render();
+  } catch (e) { alert('Error saving: ' + e.message); btn.disabled = false; btn.innerHTML = 'Save changes'; }
 }
 
 async function saveWin() {
